@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <title>Feeder - Moje narudzbine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/rangeslider.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body onload="loadMyOrders()">
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <!-- Navbar -->
+        <header class="site-navbar container py-0 bg-white" role="banner">
+            <div class="row align-items-center">
+                <div class="col-6 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0">Hrani<span
+                class="text-primary">Lica</span> </a></h1>
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="index.html">Pocetna</a></li>
+                            <li class="has-children">
+                                <a href="restaurants.html">Restorani</a>
+                                <ul class="dropdown">
+                                    <li><a onclick="redirectToRestaurantsFiltered('cukarica')">Cukarica</a></li>
+                                    <li><a onclick="redirectToRestaurantsFiltered('starigrad')">Stari grad</a></li>
+                                    <li><a onclick="redirectToRestaurantsFiltered('vracar')">Vracar</a></li>
+                                    <li><a onclick="redirectToRestaurantsFiltered('palilula')">Palilula</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="myorders.html">Moje narudzbine</a></li>
+                            <li class="has-children">
+                                <a href="team.html">O nama</a>
+                                <ul class="dropdown">
+                                    <li><a href="team.html">Tim</a></li>
+                                    <li><a href="awards.html">Nagrade</a></li>
+                                    <li><a href="sponsors.html">Sponzori</a></li>
+                                    <li class="active"><a href="#">Kontaktirajte nas</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a href="team.html">Language</a>
+                                <ul class="dropdown">
+                                    <li><a href="../myorders.html">Engleski</a></li>
+                                    <li class="active"><a href="#">Srpski</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="order.html" class="cta"><span class="bg-primary text-white rounded">Poruci</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-inline-block d-xl-none ml-auto py-3 col-6 text-right" style="position: relative; top: 3px;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+                </div>
+            </div>
+        </header>
+
+
+
+        <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../images/meat.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row align-items-center justify-content-center text-center">
+
+                    <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-md-8 text-center">
+                                <h1>Moje narudzbine</h1>
+                                <p class="mb-0">Potvrdi narudzbinu</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-7 text-center border-primary">
+                        <h2 class="font-weight-light text-primary">Vas racun</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-8" id="myOrdersParentNode">
+                        <!-- <div class="border p-3 rounded mb-2">
+                            <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" <!-- aria-controls="collapse-1" class="accordion-item h5 d-block mb-0">Where is orders phone number?</a>
+
+                            <div class="collapse" id="collapse-1">
+                                <div class="pt-2">
+                                    <p class="mb-0">There is no phone number, that is the point! Just click "Order", choose what you want and it will be at desired address very soon!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border p-3 rounded mb-2">
+                            <a data-toggle="collapse" href="#collapse-4" role="button" aria-expanded="false" aria-controls="collapse-4" class="accordion-item h5 d-block mb-0">Is this available in my city?</a>
+
+                            <div class="collapse" id="collapse-4">
+                                <div class="pt-2">
+                                    <p class="mb-0">Our service is availible only in Belgrade, but we will expand to other cities.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border p-3 rounded mb-2">
+                            <a data-toggle="collapse" href="#collapse-2" role="button" aria-expanded="false" aria-controls="collapse-2" class="accordion-item h5 d-block mb-0">Is it free?</a>
+
+                            <div class="collapse" id="collapse-2">
+                                <div class="pt-2">
+                                    <p class="mb-0">Delivery is free for price 500RSD and higher.</p>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" data-aos="fade">
+
+
+
+                        <form action="#" class="p-5 bg-white">
+
+
+                            <div class="row form-group">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label class="text-black" for="fname">Ime</label>
+                                    <input type="text" id="fname" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-black" for="lname">Prezime</label>
+                                    <input type="text" id="lname" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+
+                                <div class="col-md-12">
+                                    <label class="text-black" for="email">Email</label>
+                                    <input type="email" id="email" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+
+                                <div class="col-md-12">
+                                    <label class="text-black" for="subject">Adresa</label>
+                                    <input type="subject" id="subject" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Potvrdi" class="btn btn-primary py-2 px-4 text-white">
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <footer class="footer bg-dark">
+            <div class="container">
+                <div class="row pt-5 m-auto text-center">
+                    <div class="col-md-12">
+                        <p class="text-light" style="padding : 30px">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>, Nikola Kesic i Dimitrije Milenkovic, Odsek za softversko inzenjerstvo Elektrotehnickog fakulteta Univerziteta u Beogradu
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/jquery.countdown.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/bootstrap-datepicker.min.js"></script>
+    <script src="../js/aos.js"></script>
+    <script src="../js/rangeslider.min.js"></script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/site.js"></script>
+
+</body>
+
+</html>
