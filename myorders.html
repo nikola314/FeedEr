@@ -165,11 +165,11 @@
                             <div class="row form-group">
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <label class="text-black" for="fname">First Name</label>
-                                    <input type="text" id="fname" class="form-control">
+                                    <input type="text" id="fname" class="form-control orderForma">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="text-black" for="lname">Last Name</label>
-                                    <input type="text" id="lname" class="form-control">
+                                    <input type="text" id="lname" class="form-control orderForma">
                                 </div>
                             </div>
 
@@ -177,7 +177,7 @@
 
                                 <div class="col-md-12">
                                     <label class="text-black" for="email">Email</label>
-                                    <input type="email" id="email" class="form-control">
+                                    <input type="email" id="email" class="form-control orderForma">
                                 </div>
                             </div>
 
@@ -185,13 +185,13 @@
 
                                 <div class="col-md-12">
                                     <label class="text-black" for="subject">Address</label>
-                                    <input type="subject" id="subject" class="form-control">
+                                    <input type="subject" id="subject" class="form-control orderForma">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-12">
-                                    <input type="submit" value="Confirm order" class="btn btn-primary py-2 px-4 text-white">
+                                    <input type="submit"  onclick="downloadPDF()"  value="Confirm order" class="btn btn-primary py-2 px-4 text-white">
                                 </div>
                             </div>
 
@@ -235,9 +235,10 @@
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/rangeslider.min.js"></script>
-
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/site.js"></script>
+    
 
 </body>
 

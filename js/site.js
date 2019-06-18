@@ -284,6 +284,9 @@ function populateFlaticons(index, isIndexPage) {
 }
 
 function loadHome() {
+    if (localStorage.getItem('category') == null) {
+        localStorage.setItem('category', 'fish');
+    }
     initializeRatings();
     populateFlaticons(-1, true);
 }
@@ -736,4 +739,41 @@ function getMealArray(currentRestaurantName) {
     if (currentRestaurantName == "Lorenzo & Kakalamba") return lorenzoKakalambaMeals;
 
     return null;
+}
+
+
+function validateOrder(){
+    var elements = document.getElementsByClassName("orderForma");
+    for(let el of elements){
+        if(el.value == "") return false;
+    }
+    return true;
+}
+
+function downloadPDF(){
+
+    if(!validateOrder()){
+        return;
+    }
+
+    var doc = new jsPDF();
+    doc.setFontSize(14);
+    let content = "";
+    var orders = localStorage.orders;
+    if(orders!=null){
+        content+= new Date()+"\n\n";
+        var splitted = orders.split(",");
+        var i=0;
+        var price=0;
+        for(let item of splitted){
+            switch(i%3){
+                case 0:case 1:content=content + item + ' '; break;
+                case 2:price+=parseInt(item,'10');content=content + item + '\n'; break;
+            }
+            i++;
+        }   
+        content=content+"\n\nTOTAL PRICE: "+price;
+        doc.text(content,25,25);
+        doc.save('order.pdf')
+    }
 }
